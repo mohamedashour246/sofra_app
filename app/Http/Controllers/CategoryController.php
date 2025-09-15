@@ -9,14 +9,18 @@ use Illuminate\Support\Facades\Validator;
 class CategoryController extends Controller
 {
 
-    public function index()
+    public function index(Category $category)
     {
+       // $this->authorize('viewAny',$category);
+
         $categories = Category::all();
         return view('categories.index',compact('categories'));
     }
 
     public function create()
     {
+        $this->authorize('create', Category::class);
+
         return view('categories.create');
     }
 
