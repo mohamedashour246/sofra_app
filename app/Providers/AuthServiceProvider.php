@@ -25,12 +25,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->registerPolicies();
-
-        Gate::define('categories.create',function (User $user) {
-                $has_permissions = $user->permissions()->where('routes','categories.create')->first();
-
-                return $has_permissions ? true : false;
-        });
+//        $this->registerPolicies();
+//
+//        Gate::define('categories.create',function (User $user) {
+//                $has_permissions = $user->permissions()->where('routes','categories.create')->first();
+//
+//                return $has_permissions ? true : false;
+//        });
     }
 }
