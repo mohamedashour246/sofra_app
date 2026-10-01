@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CategoryEvent;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -39,7 +40,10 @@ class CategoryController extends Controller
         }
       //  $this->authorize('create',Category::class);
 
-        Category::create($request->all());
+        $category = Category::create($request->all());
+        $category->save();
+
+        event(new CategoryEvent($category));
 
         return redirect()->route('categories.index')->with('success','Category created successfully');
 

@@ -30,7 +30,7 @@ class userMailable extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            $this->subject: 'User Mailable'
+           // $this->subject = 'User Mailable'
         );
     }
 
@@ -40,7 +40,7 @@ class userMailable extends Mailable
     public function content(): Content
     {
         return new Content(
-            $this->view: 'email',
+            $this->view = 'email'
         );
     }
 
